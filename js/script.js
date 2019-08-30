@@ -1,26 +1,25 @@
 'use strict';
 
-let money, time, appData, question1, question2, bugetDay;
+let money, time, appData;
 money = +prompt('Ваш бюджет на месяц? ', '');
 time = prompt('Введите дату в формате YYYY-MM-DD', '');
-bugetDay = money / 30;
-
-question1 = prompt('Введите обязательную статью расходов в этом месяце', '');
-question1 = +prompt('Во сколько обойдется', '');
-
-question2 = prompt('Введите обязательную статью расходов в этом месяце', '');
-question2 = +prompt('Во сколько обойдется', '');
 
 appData = {
-    money,
-    time,
-    expenses: {
-       question1, question2
-    },
+    budget: money,
+    expenses: {},
     optionalExpenses: {},
     income: [],
+    timeData: time,
     savings: false
 };
 
-alert('Ваш бюджет на день составляет: ' + bugetDay.toFixed(2) + ' рублей');
+let q1 = prompt("Введите обязательную статью расходов в этом месяце", ''),
+    q2 = +prompt("Во сколько обойдется?", ''),
+    q3 = prompt("Введите обязательную статью расходов в этом месяце", ''),
+    q4 = +prompt("Во сколько обойдется?", '')
+
+appData.expenses.q1 = q2;
+appData.expenses.q3 = q4;
+
+alert('Ваш бюджет на день составляет: ' + appData.budget/30 + ' рублей');
 console.log('appData: ', appData);
